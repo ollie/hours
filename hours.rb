@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'trollop'
 require 'rainbow'
 require 'terminal-table'
@@ -6,7 +8,7 @@ require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
-  opt :hours,   'Hours you worked this month', :type => :int, :default => 0
+  opt :hours,   'Hours you worked this month', :type => :int, :default => 6
   opt :per_day, 'Hours you work per day',      :type => :int, :default => 6
   opt :rate,    'Your income rate per hour',   :type => :int
   opt :test,    'Run visual test :)',          :type => :bool
@@ -21,7 +23,7 @@ end_of_month       = today.at_end_of_month
 workdays_total     = workdays_between beginning_of_month, end_of_month
 workdays_passed    = workdays_between beginning_of_month, today
 
-hours_actual       = opts[:hours]
+hours_actual       = !ARGV.first.to_i.zero? ? ARGV.first.to_i : opts[:hours]
 hours_per_day      = opts[:per_day]
 hours_total        = workdays_total * hours_per_day
 hours_progressed   = workdays_passed * hours_per_day
