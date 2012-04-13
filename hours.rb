@@ -8,16 +8,18 @@ require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
-  opt :hours,   'Hours you worked this month', :type => :int, :default => 6
-  opt :per_day, 'Hours you work per day',      :type => :int, :default => 6
-  opt :rate,    'Your income rate per hour',   :type => :int
-  opt :test,    'Run visual test :)',          :type => :bool
+  opt :hours,         'Hours you worked this month', :type => :int, :default => 6
+  opt :per_day,       'Hours you work per day',      :type => :int, :default => 6
+  opt :rate,          'Your income rate per hour',   :type => :int
+  opt :exclude_today, 'Exclude today',               :type => :bool
+  opt :test,          'Run visual test :)',          :type => :bool
 end
 
 test = opts[:test]
 
 # General config
-today              = Date.today
+today_date         = Date.today
+today              = opts[:exclude_today] ? today_date - 1 : today_date
 beginning_of_month = today.at_beginning_of_month
 end_of_month       = today.at_end_of_month
 workdays_total     = workdays_between beginning_of_month, end_of_month
