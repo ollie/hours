@@ -1,0 +1,34 @@
+Hours, a Ruby progress-bar tool
+
+$ ./hours.rb --help
+Options:
+      --hours, -h <i>:   Hours you worked this month (default: 6)
+    --per-day, -p <i>:   Hours you work per day (default: 6)
+       --rate, -r <i>:   Your income rate per hour
+  --exclude-today, -e:   Exclude today
+           --test, -t:   Run visual test :)
+           --help, -l:   Show this message
+
+$ ./hours.rb 40
+
++--------------------+-----+
+|          Hours!          |
++--------------------+-----+
+| Workdays total     |  21 |
+| Workdays passed    |  10 |
+| Hours per day      |   6 |
+| Hours total        | 126 |
+| Hours progressed   |  60 |
+| Your hours         |  40 |
+| Hours missing      |  20 |
+| Hours approximated |  84 |
++--------------------+-----+
+
+Total hours
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓60▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░66░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Your hours
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓40▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒20▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░66░░░░░░░░░░░░░░░░░░░░░░░░░
+
+End-of-month approximation
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓84▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░42░░░░░░░░░░░░░░░░
