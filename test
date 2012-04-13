@@ -1,0 +1,38 @@
+# Options:
+#       --hours, -h <i>:   Hours you worked this month (default: 6)
+#     --per-day, -p <i>:   Hours you work per day (default: 6)
+#        --rate, -r <i>:   Your income rate per hour
+#   --exclude-today, -e:   Exclude today
+#            --test, -t:   Run visual test :)
+#            --help, -l:   Show this message
+
+COMMANDS=(
+  "./hours.rb 40"
+
+  "./hours.rb -h 40"
+  "./hours.rb --hours=40"
+
+  "./hours.rb 40 -p 8"
+  "./hours.rb 40 --per-day=8"
+
+  "./hours.rb 40 -r 10"
+  "./hours.rb 40 --rate=10"
+
+  "./hours.rb 40 -e"
+  "./hours.rb 40 --exclude-today"
+
+  "./hours.rb 40 -p 8 -r 10 -e"
+  "./hours.rb -h 40 -p 8 -r 10 -e"
+  "./hours.rb --hours=40 --per-day=8 --rate=10 --exclude-today"
+
+  "./hours.rb -t"
+  "./hours.rb --test"
+
+  "./hours.rb --help"
+)
+
+for COMMAND in "${COMMANDS[@]}"; do
+  echo $COMMAND
+  eval $COMMAND
+  echo '--------------------------------------------------'
+done

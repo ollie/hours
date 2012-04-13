@@ -1,4 +1,6 @@
-Hours, a Ruby progress-bar tool
+Hours
+
+A Ruby progress-bar tool showing how many hours you have worked, should have worked and will have worked. It's actually nicer than this GitHub, it has colors and isn't that big.
 
 $ ./hours.rb --help
 Options:
