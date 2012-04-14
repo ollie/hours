@@ -8,9 +8,9 @@ require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
-  opt :hours,         'Hours you worked this month', :type => :int, :default => 6
+  opt :hours,         'Hours you worked this month', :type => :int, :default => 0
   opt :per_day,       'Hours you work per day',      :type => :int, :default => 6
-  opt :rate,          'Your income rate per hour',   :type => :int
+  opt :rate,          'Your income rate per hour',   :type => :float
   opt :exclude_today, 'Exclude today',               :type => :bool
   opt :test,          'Run visual test :)',          :type => :bool
 end
@@ -34,8 +34,8 @@ hours_approximated = (hours_actual.to_f / workdays_passed * workdays_total).roun
 
 if opts[:rate]
   income_hour_rate    = opts[:rate]
-  income_actual       = hours_actual * income_hour_rate
-  income_approximated = hours_approximated * income_hour_rate
+  income_actual       = (hours_actual * income_hour_rate).round
+  income_approximated = (hours_approximated * income_hour_rate).round
 end
 
 if test
