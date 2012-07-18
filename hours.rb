@@ -8,11 +8,13 @@ require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
-  opt :hours,         'Hours you worked this month', :type => :int, :default => 0
-  opt :per_day,       'Hours you work per day',      :type => :int, :default => 6
-  opt :rate,          'Your income rate per hour',   :type => :float
-  opt :exclude_today, 'Exclude today',               :type => :bool
-  opt :test,          'Run visual test :)',          :type => :bool
+  opt :hours,         'Hours you worked this month', :short => :h, :type => :int, :default => 0
+  opt :per_day,       'Hours you work per day',      :short => :p, :type => :int, :default => 6
+  opt :days_total,    'Total workdays override',     :short => :t, :type => :int
+  opt :days_passed,   'Passed workdays override',    :short => :d, :type => :int
+  opt :rate,          'Your income rate per hour',   :short => :r, :type => :float
+  opt :exclude_today, 'Exclude today',               :short => :e, :type => :bool
+  opt :test,          'Run visual test :)',                        :type => :bool
 end
 
 test = opts[:test]
@@ -22,8 +24,8 @@ today_date         = Date.today
 today              = opts[:exclude_today] ? today_date - 1 : today_date
 beginning_of_month = today.at_beginning_of_month
 end_of_month       = today.at_end_of_month
-workdays_total     = workdays_between beginning_of_month, end_of_month
-workdays_passed    = workdays_between beginning_of_month, today
+workdays_total     = opts[:days_total] ? opts[:days_total] : workdays_between(beginning_of_month, end_of_month)
+workdays_passed    = opts[:days_passed] ? opts[:days_passed] : workdays_between(beginning_of_month, today)
 
 hours_actual       = !ARGV.first.to_i.zero? ? ARGV.first.to_i : opts[:hours]
 hours_per_day      = opts[:per_day]
