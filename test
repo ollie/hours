@@ -25,7 +25,7 @@ COMMANDS=(
   "./hours.rb -h 40 -p 8 -r 10 -e"
   "./hours.rb --hours=40 --per-day=8 --rate=10 --exclude-today"
 
-  "./hours.rb -t"
+  "./hours.rb -s"
   "./hours.rb --test"
 
   "./hours.rb --help"

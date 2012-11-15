@@ -1,12 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'bundler/setup'
+require 'bundler'
+Bundler.require
 
-require 'trollop'
-require 'rainbow'
-require 'terminal-table'
 require 'active_support/core_ext'
-# require 'pry'
 require './lib'
 
 opts = Trollop.options do
