@@ -7,13 +7,13 @@ require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
-  opt :hours,         'Hours you worked this month', :short => :h, :type => :int, :default => 0
-  opt :per_day,       'Hours you work per day',      :short => :p, :type => :int, :default => 6
-  opt :days_total,    'Total workdays override',     :short => :t, :type => :int
-  opt :days_passed,   'Passed workdays override',    :short => :d, :type => :int
-  opt :rate,          'Your income rate per hour',   :short => :r, :type => :float
-  opt :exclude_today, 'Exclude today',               :short => :e, :type => :bool
-  opt :test,          'Run visual test :)',                        :type => :bool
+  opt :hours,         'Hours you worked this month', short: :h, type: :int, default: 0
+  opt :per_day,       'Hours you work per day',      short: :p, type: :int, default: 6
+  opt :days_total,    'Total workdays override',     short: :t, type: :int
+  opt :days_passed,   'Passed workdays override',    short: :d, type: :int
+  opt :rate,          'Your income rate per hour',   short: :r, type: :float
+  opt :exclude_today, 'Exclude today',               short: :e, type: :bool
+  opt :test,          'Run visual test :)',                     type: :bool
 end
 
 test = opts[:test]
@@ -47,16 +47,16 @@ else
   table = Terminal::Table.new do |t|
     t << [ { value: 'Hours!', colspan: 2, alignment: :center } ]
     t << :separator
-    t << [ { value: 'Workdays total'      }, { value: workdays_total,      :alignment => :right } ]
-    t << [ { value: 'Workdays passed'     }, { value: workdays_passed,     :alignment => :right } ]
-    t << [ { value: 'Hours per day'       }, { value: hours_per_day,       :alignment => :right } ]
-    t << [ { value: 'Hours total'         }, { value: hours_total,         :alignment => :right } ]
-    t << [ { value: 'Hours progressed'    }, { value: hours_progressed,    :alignment => :right } ]
-    t << [ { value: 'Your hours'          }, { value: hours_actual,        :alignment => :right } ]
-    t << [ { value: 'Hours missing'       }, { value: hours_missing,       :alignment => :right } ]
-    t << [ { value: 'Hours approximated'  }, { value: hours_approximated,  :alignment => :right } ]
-    t << [ { value: 'Income actual'       }, { value: income_actual,       :alignment => :right } ] if opts[:rate]
-    t << [ { value: 'Income approximated' }, { value: income_approximated, :alignment => :right } ] if opts[:rate]
+    t << [ { value: 'Workdays total'      }, { value: workdays_total,      alignment: :right } ]
+    t << [ { value: 'Workdays passed'     }, { value: workdays_passed,     alignment: :right } ]
+    t << [ { value: 'Hours per day'       }, { value: hours_per_day,       alignment: :right } ]
+    t << [ { value: 'Hours total'         }, { value: hours_total,         alignment: :right } ]
+    t << [ { value: 'Hours progressed'    }, { value: hours_progressed,    alignment: :right } ]
+    t << [ { value: 'Your hours'          }, { value: hours_actual,        alignment: :right } ]
+    t << [ { value: 'Hours missing'       }, { value: hours_missing,       alignment: :right } ]
+    t << [ { value: 'Hours approximated'  }, { value: hours_approximated,  alignment: :right } ]
+    t << [ { value: 'Income actual'       }, { value: income_actual,       alignment: :right } ] if opts[:rate]
+    t << [ { value: 'Income approximated' }, { value: income_approximated, alignment: :right } ] if opts[:rate]
   end
   puts table
   puts
