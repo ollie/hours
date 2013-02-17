@@ -4,12 +4,14 @@ A Ruby progress-bar tool showing how many hours you have worked, should have wor
 
 $ ./hours.rb --help
 Options:
-      --hours, -h <i>:   Hours you worked this month (default: 0)
-    --per-day, -p <i>:   Hours you work per day (default: 6)
-       --rate, -r <f>:   Your income rate per hour
-  --exclude-today, -e:   Exclude today
-           --test, -t:   Run visual test :)
-           --help, -l:   Show this message
+        --hours, -h <i>:   Hours you worked this month (default: 0)
+      --per-day, -p <i>:   Hours you work per day (default: 6)
+   --days-total, -t <i>:   Total workdays override
+  --days-passed, -d <i>:   Passed workdays override
+         --rate, -r <f>:   Your income rate per hour
+    --exclude-today, -e:   Exclude today
+             --test, -s:   Run visual test :)
+             --help, -l:   Show this message
 
 $ ./hours.rb 40
 
