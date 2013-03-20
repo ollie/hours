@@ -42,11 +42,13 @@ def progress_bar(options = {})
   rest_area_length    = length - hours_area_length - missing_area_length
   rest_area_length    = 0 if rest_area_length < 0
 
+  hours_area_length = length if hours_area_length > length
+
   puts label if label
   area hours, hours_area_length, :black, :green
   area missing, missing_area_length, :black, :yellow
   area rest, rest_area_length, :black, :red
-  
+
   puts if label
   puts
 end

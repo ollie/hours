@@ -9,6 +9,8 @@
 COMMANDS=(
   "./hours.rb 40"
 
+  "./hours.rb 400"
+
   "./hours.rb -h 40"
   "./hours.rb --hours=40"
 
