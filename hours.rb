@@ -60,7 +60,16 @@ else
   end
   puts table
   puts
-  progress_bar label: 'Total hours', hours: hours_progressed, total: hours_total
-  progress_bar label: 'Your hours', hours: hours_actual, total: hours_total, missing: hours_missing
-  progress_bar label: 'End-of-month approximation', hours: hours_approximated, total: hours_total
+  progress_bar label: 'Total hours',
+               hours: hours_progressed,
+               total: hours_total
+
+  progress_bar label: 'Your hours',
+               hours: hours_actual,
+               total: hours_total,
+               missing: hours_missing
+
+  progress_bar label: 'End-of-month approximation',
+               hours: hours_approximated,
+               total: hours_total
 end
