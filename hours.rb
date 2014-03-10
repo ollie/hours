@@ -3,7 +3,6 @@
 require 'bundler'
 Bundler.require
 
-require 'active_support/core_ext'
 require './lib'
 
 opts = Trollop.options do
@@ -21,8 +20,8 @@ test = opts[:test]
 # General config
 today_date         = Date.today
 today              = opts[:exclude_today] ? today_date - 1 : today_date
-beginning_of_month = today.at_beginning_of_month
-end_of_month       = today.at_end_of_month
+beginning_of_month = Date.new(today.year, today.month, 1)
+end_of_month       = Date.new(today.year, today.month, -1)
 workdays_total     = opts[:days_total] ? opts[:days_total] : workdays_between(beginning_of_month, end_of_month)
 workdays_passed    = opts[:days_passed] ? opts[:days_passed] : workdays_between(beginning_of_month, today)
 

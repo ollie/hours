@@ -59,7 +59,7 @@ def area(label, length, foreground, background)
   elsif length == 1
     label.to_s[0]
   else ''
-  end.each_char { |letter| print letter.color(foreground).background(background) }
+  end.each_char { |letter| print Rainbow(letter).color(foreground).background(background) }
 end
 
 def test(total, missing)
